@@ -5,12 +5,51 @@
 @tailwind utilities;
 
 body {
-  background: linear-gradient(135deg, #0f0f23 0%, #1a0a2e 50%, #16213e 100%);
-  background-attachment: fixed;
-  color: white;
-  font-family: 'Inter', system-ui, sans-serif;
+  background: #F9FAFB !important;
+  /* Professional Light Grey */
+  color: #2E2E2E;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+}
+
+/* Force override stale tailwind classes */
+:root {
+  --color-primary: #3b6ba5;
+  --color-secondary: #72a5d3;
+}
+
+.bg-background {
+  background-color: #F9FAFB !important;
+}
+
+.bg-primary {
+  background-color: #3b6ba5 !important;
+}
+
+.text-primary {
+  color: #3b6ba5 !important;
+}
+
+.border-primary {
+  border-color: #3b6ba5 !important;
+}
+
+.bg-secondary {
+  background-color: #72a5d3 !important;
+}
+
+.text-secondary {
+  color: #72a5d3 !important;
+}
+
+.text-content {
+  color: #2E2E2E !important;
+}
+
+.text-content-light {
+  color: #525252 !important;
 }
 
 html {

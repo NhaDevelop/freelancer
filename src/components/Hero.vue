@@ -1,101 +1,89 @@
 <template>
-  <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-    <!-- Vibrant Background Orbs -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute top-20 left-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
-      <div class="absolute bottom-20 right-10 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
-      <div class="absolute top-1/2 left-1/2 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
-    </div>
+  <section id="home" class="min-h-screen flex items-center relative overflow-hidden pt-20 bg-background">
+    <!-- Subtle Gradient Backdrop -->
+    <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-secondary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 -z-10 pointer-events-none"></div>
 
-    <!-- Content -->
-    <div class="container mx-auto px-6 relative z-10">
-      <div class="text-center max-w-6xl mx-auto">
-        <!-- Main Heading -->
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight" ref="heroTitle">
-          <span class="block mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Full-Stack Excellence
-          </span>
-          <span class="text-white text-4xl md:text-6xl lg:text-7xl">Meets Mobile Innovation</span>
-        </h1>
-
-        <!-- Subtitle -->
-        <p class="text-xl md:text-2xl lg:text-3xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed font-medium" ref="heroSubtitle">
-          We're a collective of <span class="text-cyan-400 font-bold">elite developers</span> crafting 
-          <span class="text-purple-400 font-bold">cutting-edge</span> web and mobile solutions 🚀
-        </p>
-
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20" ref="heroButtons">
-          <a href="#services" class="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-bold text-lg hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300">
-            🎯 Explore Our Services
-          </a>
-          <a href="#team" class="px-8 py-4 rounded-full border-3 border-cyan-400 text-cyan-400 font-bold text-lg hover:bg-cyan-400 hover:text-gray-900 hover:scale-105 transition-all duration-300">
-            👥 Meet The Team
-          </a>
-        </div>
-
-        <!-- Stats Cards -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6" ref="heroStats">
-          <div class="bg-white/10 backdrop-blur-lg border-2 border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:shadow-2xl hover:shadow-cyan-500/30 transition-all">
-            <div class="text-5xl font-black mb-3 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">11+</div>
-            <div class="text-gray-300 font-semibold text-lg">Technologies</div>
+    <div class="container mx-auto px-6 relative z-10 w-full">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        
+        <!-- Left Column: Content -->
+        <div class="max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-8">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Available for new projects
           </div>
-          <div class="bg-white/10 backdrop-blur-lg border-2 border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:shadow-2xl hover:shadow-purple-500/30 transition-all">
-            <div class="text-5xl font-black mb-3 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">4</div>
-            <div class="text-gray-300 font-semibold text-lg">Expert Developers</div>
+          
+          <h1 class="text-5xl lg:text-7xl font-bold text-content tracking-tight leading-tight mb-8">
+            Building Scalable <span class="text-primary">Digital Future</span>
+          </h1>
+          
+          <p class="text-lg text-content-light leading-relaxed mb-10 max-w-xl">
+            We are The Dev Quartet. A specialized team of senior engineers delivering enterprise-grade web and mobile applications with precision and speed.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-16">
+            <a href="#contact" class="px-8 py-4 rounded-xl bg-primary hover:bg-primary-hover text-white font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-1 transition-all duration-300 text-center">
+              Start Your Project
+            </a>
+            <a href="#work" class="px-8 py-4 rounded-xl bg-white border border-gray-200 hover:border-primary text-content hover:text-primary font-semibold hover:shadow-md transition-all duration-300 text-center flex items-center justify-center gap-2">
+              View Our Work
+              <ArrowRight class="w-4 h-4" />
+            </a>
           </div>
-          <div class="bg-white/10 backdrop-blur-lg border-2 border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:shadow-2xl hover:shadow-green-500/30 transition-all">
-            <div class="text-5xl font-black mb-3 bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">100%</div>
-            <div class="text-gray-300 font-semibold text-lg">Commitment</div>
-          </div>
-          <div class="bg-white/10 backdrop-blur-lg border-2 border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:shadow-2xl hover:shadow-orange-500/30 transition-all">
-            <div class="text-5xl font-black mb-3 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">24/7</div>
-            <div class="text-gray-300 font-semibold text-lg">Support</div>
+
+          <!-- Trust Indicators -->
+          <div class="pt-8 border-t border-gray-200">
+            <p class="text-xs font-semibold text-content-light uppercase tracking-wider mb-4">Trusted Technologies</p>
+            <div class="flex gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+               <!-- Simple generic tech logos for 'Trust' visual -->
+               <Layers class="w-8 h-8" />
+               <Database class="w-8 h-8" />
+               <Cloud class="w-8 h-8" />
+               <ShieldCheck class="w-8 h-8" />
+               <Globe class="w-8 h-8" />
+            </div>
           </div>
         </div>
+
+        <!-- Right Column: Visual (Abstract Code Window) -->
+        <div class="relative hidden lg:block">
+          <!-- Clean structured shadow instead of blurred glow -->
+          <div class="absolute -inset-2 bg-secondary/10 rounded-2xl -z-10 translate-x-2 translate-y-2"></div>
+          
+          <div class="relative bg-white rounded-2xl border border-gray-200 shadow-2xl overflow-hidden transform rotate-1 hover:rotate-0 transition-transform duration-500">
+            <!-- Window Header -->
+            <div class="bg-gray-50 border-b border-gray-200 px-4 py-3 flex items-center gap-2">
+              <div class="flex gap-1.5">
+                <div class="w-3 h-3 rounded-full bg-gray-300"></div>
+                <div class="w-3 h-3 rounded-full bg-gray-300"></div>
+                <div class="w-3 h-3 rounded-full bg-gray-300"></div>
+              </div>
+              <div class="text-xs text-gray-400 font-mono ml-4">Agency.ts</div>
+            </div>
+            <!-- Code Content -->
+            <div class="p-6 font-mono text-xs sm:text-sm leading-relaxed text-slate-600 bg-white">
+              <p><span class="text-purple-600">interface</span> <span class="text-yellow-600">Agency</span> {</p>
+              <p class="pl-4"><span class="text-slate-500">name</span>: <span class="text-green-600">'The Dev Quartet'</span>;</p>
+              <p class="pl-4"><span class="text-slate-500">expertise</span>: [<span class="text-green-600">'Web'</span>, <span class="text-green-600">'Mobile'</span>, <span class="text-green-600">'Cloud'</span>];</p>
+              <p class="pl-4"><span class="text-slate-500">mission</span>: <span class="text-green-600">'Deliver Excellence'</span>;</p>
+              
+              <p class="pl-4 mt-2"><span class="text-purple-600">async</span> <span class="text-blue-600">buildFuture</span>() {</p>
+              <p class="pl-8"><span class="text-purple-600">await</span> <span class="text-red-500">this</span>.<span class="text-blue-600">analyze</span>();</p>
+              <p class="pl-8"><span class="text-purple-600">return</span> <span class="text-purple-600">new</span> <span class="text-yellow-600">Solution</span>({</p>
+              <p class="pl-12"><span class="text-slate-500">quality</span>: <span class="text-orange-500">MAX_INT</span>,</p>
+              <p class="pl-12"><span class="text-slate-500">deadline</span>: <span class="text-orange-500">MET</span></p>
+              <p class="pl-8">});</p>
+              <p class="pl-4">}</p>
+              <p>}</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import { gsap } from 'gsap'
-
-const heroTitle = ref(null)
-const heroSubtitle = ref(null)
-const heroButtons = ref(null)
-const heroStats = ref(null)
-
-onMounted(() => {
-  const timeline = gsap.timeline()
-  
-  timeline
-    .from(heroTitle.value, {
-      opacity: 0,
-      y: 80,
-      duration: 1.2,
-      ease: 'power4.out'
-    })
-    .from(heroSubtitle.value, {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: 'power3.out'
-    }, '-=0.6')
-    .from(heroButtons.value, {
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-      ease: 'power3.out'
-    }, '-=0.5')
-    .from(heroStats.value.children, {
-      opacity: 0,
-      y: 40,
-      scale: 0.8,
-      duration: 0.8,
-      stagger: 0.15,
-      ease: 'back.out(1.7)'
-    }, '-=0.4')
-})
+import { ArrowRight, Layers, Database, Cloud, ShieldCheck, Globe } from 'lucide-vue-next'
 </script>

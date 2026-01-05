@@ -8,24 +8,19 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#3b6ba5', // User Primary Blue
-          hover: '#2c5282',   // Darker shade
+          DEFAULT: '#4A90E2', // Muted Blue
+          hover: '#357ABD',   // Darker Muted Blue
         },
         secondary: {
-          DEFAULT: '#72a5d3', // User Secondary (Sky Blue)
-          hover: '#5a92c4',
-        },
-        content: {
-          DEFAULT: '#2E2E2E', // Charcoal (Formerly Secondary) - For Text
-          light: '#525252',   // Lighter Charcoal
+          DEFAULT: '#2E2E2E', // Charcoal
+          light: '#4B4B4B',   // Lighter Charcoal
         },
         accent: {
-          DEFAULT: '#72a5d3', // Map Accent to Secondary
-          hover: '#5a92c4',
+          DEFAULT: '#4A90E2', // SAME AS PRIMARY
+          hover: '#357ABD',   // SAME AS PRIMARY HOVER
         },
-        background: '#F9FAFB', // Professional Light Grey
-        surface: '#F8FAFC',    // Very subtle slate for cards
-        border: '#E5E7EB',
+        background: '#F4F4F4', // Light Gray
+        surface: '#FFFFFF',    // White
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],

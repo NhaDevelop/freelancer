@@ -5,7 +5,6 @@ export const teamMembers = [
     role: 'Digital Solutions Architect',
     specializations: ['Vue.js', 'Laravel', 'Cloud Architecture', 'MySQL'],
     description: 'Leads digital transformation projects and builds scalable enterprise solutions.',
-    avatar: '💼',
     social: {
       github: '#',
       linkedin: '#',
@@ -18,7 +17,6 @@ export const teamMembers = [
     role: 'Backend Engineer',
     specializations: ['PHP', 'Laravel', 'Express', 'API Design'],
     description: 'Specializes in robust backend systems and enterprise-grade API development.',
-    avatar: '⚡',
     social: {
       github: '#',
       linkedin: '#',
@@ -31,7 +29,6 @@ export const teamMembers = [
     role: 'Mobile Solutions Expert',
     specializations: ['Flutter', 'Dart', 'Mobile Strategy'],
     description: 'Creates innovative mobile experiences for iOS and Android platforms.',
-    avatar: '📱',
     social: {
       github: '#',
       linkedin: '#',
@@ -44,7 +41,6 @@ export const teamMembers = [
     role: 'Frontend Innovation Lead',
     specializations: ['React', 'Vue.js', 'TypeScript', 'Nuxt.js'],
     description: 'Designs cutting-edge user interfaces and modern web experiences.',
-    avatar: '🎨',
     social: {
       github: '#',
       linkedin: '#',

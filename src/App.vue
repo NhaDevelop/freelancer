@@ -1,7 +1,8 @@
 <template>
-  <div class="min-h-screen bg-dark-bg">
+  <div class="min-h-screen text-content">
     <Navbar />
     <Hero />
+    <Work />
     <TeamSection />
     <TechStack />
     <Services />
@@ -12,6 +13,7 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
 import Hero from './components/Hero.vue'
+import Work from './components/Work.vue'
 import TeamSection from './components/TeamSection.vue'
 import TechStack from './components/TechStack.vue'
 import Services from './components/Services.vue'

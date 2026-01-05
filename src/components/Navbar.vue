@@ -1,89 +1,93 @@
 <template>
-  <nav class="fixed top-0 left-0 right-0 z-50 glass-card border-b-2 border-white/20 shadow-2xl">
-    <div class="container mx-auto px-6 py-5">
-      <div class="flex items-center justify-between">
-        <!-- Logo with gradient -->
-        <div class="text-3xl font-black">
-          <span class="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
-            ✨ The Dev Quartet
-          </span>
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border transition-all duration-300">
+    <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+          <Layers class="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" />
         </div>
-
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a 
-            v-for="link in navLinks" 
-            :key="link.id"
-            :href="link.href"
-            class="text-gray-200 hover:text-cyan-400 transition-all duration-300 font-semibold text-lg relative group"
-          >
-            {{ link.label }}
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 group-hover:w-full transition-all duration-300"></span>
-          </a>
-          <a href="#contact" class="btn-primary text-base px-6 py-2">
-            📧 Contact Us
-          </a>
+        <div class="flex flex-col">
+          <span class="text-lg font-bold text-content leading-tight tracking-tight">The Dev Quartet</span>
+          <span class="text-xs text-content-light font-medium tracking-wide uppercase">Tech Solutions</span>
         </div>
+      </a>
 
-        <!-- Mobile Menu Button -->
-        <button 
-          @click="mobileMenuOpen = !mobileMenuOpen"
-          class="md:hidden text-white focus:outline-none bg-gradient-to-r from-cyan-500 to-purple-500 p-3 rounded-lg hover:scale-110 transition-transform"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path 
-              v-if="!mobileMenuOpen"
-              stroke-linecap="round" 
-              stroke-linejoin="round" 
-              stroke-width="2" 
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-            <path 
-              v-else
-              stroke-linecap="round" 
-              stroke-linejoin="round" 
-              stroke-width="2" 
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Menu -->
-      <div 
-        v-if="mobileMenuOpen"
-        class="md:hidden mt-6 pb-4 space-y-4"
-      >
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
         <a 
           v-for="link in navLinks" 
           :key="link.id"
           :href="link.href"
-          @click="mobileMenuOpen = false"
-          class="block text-gray-200 hover:text-cyan-400 transition-colors duration-300 font-semibold text-lg py-2"
+          class="text-sm font-medium text-content hover:text-primary transition-colors duration-200"
         >
           {{ link.label }}
         </a>
-        <a 
-          href="#contact" 
-          @click="mobileMenuOpen = false"
-          class="block btn-primary text-center"
-        >
-          📧 Contact Us
+      </div>
+
+      <!-- CTA Button -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="#contact" class="px-6 py-2.5 rounded-lg bg-primary hover:bg-primary-hover text-white text-sm font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transform hover:-translate-y-0.5 transition-all duration-300">
+          Get a Quote
         </a>
       </div>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        @click="mobileMenuOpen = !mobileMenuOpen"
+        class="md:hidden text-content p-2 hover:bg-gray-100 rounded-lg transition-colors"
+      >
+        <Menu v-if="!mobileMenuOpen" class="w-6 h-6" />
+        <X v-else class="w-6 h-6" />
+      </button>
     </div>
+
+    <!-- Mobile Menu -->
+    <transition
+      enter-active-class="transition duration-200 ease-out"
+      enter-from-class="transform -translate-y-4 opacity-0"
+      enter-to-class="transform translate-y-0 opacity-100"
+      leave-active-class="transition duration-150 ease-in"
+      leave-from-class="transform translate-y-0 opacity-100"
+      leave-to-class="transform -translate-y-4 opacity-0"
+    >
+      <div 
+        v-if="mobileMenuOpen"
+        class="md:hidden border-t border-border bg-white"
+      >
+        <div class="container mx-auto px-6 py-6 space-y-4">
+          <a 
+            v-for="link in navLinks" 
+            :key="link.id"
+            :href="link.href"
+            @click="mobileMenuOpen = false"
+            class="block text-base font-medium text-content hover:text-primary transition-colors"
+          >
+            {{ link.label }}
+          </a>
+          <hr class="border-border" />
+          <a 
+            href="#contact" 
+            @click="mobileMenuOpen = false"
+            class="block w-full py-3 text-center rounded-lg bg-primary text-white font-semibold shadow-md active:scale-95 transition-transform"
+          >
+            Get a Quote
+          </a>
+        </div>
+      </div>
+    </transition>
   </nav>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import { Layers, Menu, X } from 'lucide-vue-next'
 
 const mobileMenuOpen = ref(false)
 
 const navLinks = [
-  { id: 1, label: '🏠 Home', href: '#home' },
-  { id: 2, label: '👥 Team', href: '#team' },
-  { id: 3, label: '🚀 Tech Stack', href: '#tech' },
-  { id: 4, label: '⚡ Services', href: '#services' },
+  { id: 1, label: 'Work', href: '#tech' },
+  { id: 2, label: 'Services', href: '#services' },
+  { id: 3, label: 'Process', href: '#process' }, // New section
+  { id: 4, label: 'Team', href: '#team' },
 ]
 </script>

@@ -1,74 +1,96 @@
 <template>
-  <section id="services" class="py-24 relative overflow-hidden">
-    <div class="container mx-auto px-6 relative z-10">
-      <!-- Section Header -->
+  <section id="services" class="py-24 bg-background relative">
+    <div class="container mx-auto px-6">
+      
+      <!-- Services Header -->
       <div class="text-center mb-20">
-        <h2 class="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent flex items-center justify-center gap-4">
-          <Zap class="w-12 h-12 text-purple-400" :stroke-width="2.5" />
-          Our Services
+        <span class="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">What We Deliver</span>
+        <h2 class="text-4xl md:text-5xl font-bold text-content mb-6 tracking-tight">
+          Comprehensive Tech <span class="text-primary">Solutions</span>
         </h2>
-        <p class="text-gray-300 text-xl md:text-2xl max-w-3xl mx-auto font-medium">
-          From concept to deployment, we offer comprehensive development services tailored to your needs
+        <p class="text-content-light max-w-2xl mx-auto text-lg leading-relaxed">
+          We don't just write code; we engineer digital ecosystems tailored to your business goals.
         </p>
       </div>
 
       <!-- Services Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-3 gap-8 mb-32">
         <div 
           v-for="(service, index) in services" 
-          :key="service.id"
-          class="bg-white/10 backdrop-blur-lg border-2 border-white/20 rounded-2xl p-10 hover:bg-white/20 hover:border-cyan-400/50 hover:shadow-2xl hover:shadow-cyan-500/30 hover:-translate-y-2 transition-all duration-300"
+          :key="service.title"
+          class="group bg-white border border-gray-100 rounded-2xl p-8 hover:border-cyan-400/50 hover:shadow-xl hover:shadow-cyan-400/20 transition-all duration-300 relative overflow-hidden"
         >
-          <!-- Icon -->
-          <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br flex items-center justify-center"
-            :class="getIconGradient(index)">
-            <component :is="getServiceIcon(index)" class="w-12 h-12 text-white" :stroke-width="2" />
-          </div>
+          <!-- Hover Accent - Cyan -->
+          <div class="absolute top-0 left-0 w-1 h-0 bg-cyan-400 group-hover:h-full transition-all duration-300"></div>
 
-          <!-- Title -->
-          <h3 class="text-3xl font-black mb-5 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+          <div class="w-14 h-14 rounded-xl bg-cyan-50 flex items-center justify-center mb-8 group-hover:bg-cyan-400 group-hover:text-white transition-colors duration-300">
+            <component :is="service.icon" class="w-7 h-7 text-cyan-500 group-hover:text-white transition-colors duration-300" />
+          </div>
+          
+          <h3 class="text-2xl font-bold text-content mb-4 group-hover:text-cyan-600 transition-colors">
             {{ service.title }}
           </h3>
-
-          <!-- Description -->
-          <p class="text-gray-300 mb-8 text-lg leading-relaxed">
+          
+          <p class="text-content-light mb-8 leading-relaxed text-sm">
             {{ service.description }}
           </p>
 
-          <!-- Technologies -->
-          <div class="mb-8">
-            <h4 class="text-sm font-bold text-cyan-400 mb-4 uppercase flex items-center gap-2">
-              <Code class="w-4 h-4" />
-              Technologies:
-            </h4>
-            <div class="flex flex-wrap gap-3">
-              <span 
-                v-for="tech in service.technologies" 
-                :key="tech"
-                class="px-4 py-2 rounded-full text-sm font-semibold bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all"
-              >
-                {{ tech }}
-              </span>
-            </div>
+          <ul class="space-y-3 pt-6 border-t border-gray-100">
+            <li v-for="feature in service.features" :key="feature" class="flex items-center gap-3 text-content text-sm font-medium">
+              <Check class="w-4 h-4 text-cyan-500 shrink-0" />
+              <span>{{ feature }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Process Section -->
+      <div id="process" class="bg-white rounded-3xl border border-gray-200 p-12 lg:p-16">
+        <div class="text-center mb-16">
+          <span class="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">How We Work</span>
+          <h3 class="text-3xl md:text-4xl font-bold text-content">Our Development Process</h3>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-8 relative">
+          <!-- Connector Line (Desktop) -->
+          <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gray-100 -z-10"></div>
+
+          <!-- Step 1 -->
+          <div class="relative pt-4">
+            <div class="w-16 h-16 rounded-full bg-white border-4 border-gray-100 flex items-center justify-center text-xl font-bold text-content mb-6 mx-auto relative z-10 shadow-sm">01</div>
+            <h4 class="text-xl font-bold text-content text-center mb-4">Discovery</h4>
+            <p class="text-sm text-content-light text-center leading-relaxed">
+              We dive deep into your requirements, market, and goals to blueprint the perfect solution.
+            </p>
           </div>
 
-          <!-- Features -->
-          <div>
-            <h4 class="text-sm font-bold text-purple-400 mb-4 uppercase flex items-center gap-2">
-              <Sparkles class="w-4 h-4" />
-              Key Features:
-            </h4>
-            <ul class="space-y-3">
-              <li 
-                v-for="feature in service.features" 
-                :key="feature"
-                class="text-base text-gray-300 flex items-start"
-              >
-                <Check class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-0.5" :stroke-width="3" />
-                <span>{{ feature }}</span>
-              </li>
-            </ul>
+          <!-- Step 2 -->
+          <div class="relative pt-4">
+            <div class="w-16 h-16 rounded-full bg-white border-4 border-gray-100 flex items-center justify-center text-xl font-bold text-content mb-6 mx-auto relative z-10 shadow-sm">02</div>
+            <h4 class="text-xl font-bold text-content text-center mb-4">Strategy</h4>
+            <p class="text-sm text-content-light text-center leading-relaxed">
+              Architecting the technical foundation and user experience design for scalability.
+            </p>
           </div>
+
+          <!-- Step 3 -->
+          <div class="relative pt-4">
+            <div class="w-16 h-16 rounded-full bg-white border-4 border-cyan-400 flex items-center justify-center text-xl font-bold text-cyan-500 mb-6 mx-auto relative z-10 shadow-lg shadow-cyan-400/30">03</div>
+            <h4 class="text-xl font-bold text-content text-center mb-4">Development</h4>
+            <p class="text-sm text-content-light text-center leading-relaxed">
+              Agile sprints, code reviews, and rigorous testing to build robust, high-performance software.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="relative pt-4">
+            <div class="w-16 h-16 rounded-full bg-white border-4 border-gray-100 flex items-center justify-center text-xl font-bold text-content mb-6 mx-auto relative z-10 shadow-sm">04</div>
+            <h4 class="text-xl font-bold text-content text-center mb-4">Launch</h4>
+            <p class="text-sm text-content-light text-center leading-relaxed">
+              Seamless deployment, ongoing support, and data-driven optimization.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
@@ -76,23 +98,6 @@
 </template>
 
 <script setup>
-import { Zap, Code, Sparkles, Check, Gem, Building2, Smartphone } from 'lucide-vue-next'
+import { Zap, Check } from 'lucide-vue-next'
 import { services } from '../data/services'
-
-const getServiceIcon = (index) => {
-  const icons = [Gem, Building2, Smartphone]
-  return icons[index % icons.length]
-}
-
-const getIconGradient = (index) => {
-  const gradients = [
-    'from-cyan-500 to-blue-500',
-    'from-purple-500 to-pink-500',
-    'from-green-500 to-emerald-500'
-  ]
-  return gradients[index % gradients.length]
-}
-
-console.log('Services count:', services.length)
-console.log('Services data:', services)
 </script>

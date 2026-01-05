@@ -1,29 +1,21 @@
 <template>
-  <section id="team" class="py-24 relative overflow-hidden">
-    <!-- Vibrant Background -->
-    <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/10 via-purple-900/10 to-pink-900/10"></div>
-    
-    <!-- Animated Orbs -->
-    <div class="absolute top-40 left-10 w-80 h-80 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-    <div class="absolute bottom-40 right-10 w-80 h-80 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full blur-3xl opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
-    
+  <section id="team" class="py-20 bg-background relative overflow-hidden">
+    <!-- Clean Background with subtle tint -->
+    <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/3 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3 -z-10 pointer-events-none"></div>
+
     <div class="container mx-auto px-6 relative z-10">
-      <!-- Section Header -->
-      <div class="text-center mb-20">
-        <h2 class="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent flex items-center justify-center gap-4">
-          <Users class="w-12 h-12 text-cyan-400" :stroke-width="2.5" />
-          Meet The Team
+      <div class="text-center mb-16">
+        <span class="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Our Team</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-content mb-6">
+          Meet the <span class="text-primary">Experts</span>
         </h2>
-        <p class="text-gray-300 text-xl md:text-2xl max-w-3xl mx-auto font-medium leading-relaxed">
-          Four <span class="text-cyan-400 font-bold">talented developers</span>, one 
-          <span class="text-purple-400 font-bold">powerful collective</span>. 
-          We combine our expertise to deliver 
-          <span class="text-pink-400 font-bold">exceptional results</span>
+        <p class="text-content-light max-w-2xl mx-auto text-lg leading-relaxed">
+          Senior-level engineers dedicated to your project's success.
         </p>
       </div>
 
       <!-- Team Grid - Fixed to show all 4 cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <TeamCard 
           v-for="member in teamMembers" 
           :key="member.id"
