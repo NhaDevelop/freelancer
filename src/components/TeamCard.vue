@@ -2,11 +2,12 @@
   <div class="group relative bg-white border border-gray-200 rounded-2xl p-6 transition-all duration-500 hover:shadow-xl hover:shadow-cyan-400/20 hover:border-cyan-400/50 hover:-translate-y-2 overflow-hidden">
     
     <div class="relative z-10 flex flex-col items-center text-center h-full">
-      <!-- Member Icon (Placeholder for Photo) -->
+      <!-- Member Icon or Photo -->
       <div 
-        class="w-24 h-24 rounded-full flex items-center justify-center mb-6 bg-gray-50 border border-gray-100 group-hover:border-cyan-400/50 transition-all duration-300"
+        class="w-24 h-24 rounded-full flex items-center justify-center mb-6 bg-gray-50 border border-gray-100 group-hover:border-cyan-400/50 transition-all duration-300 overflow-hidden"
       >
-        <component :is="roleIcon" class="w-10 h-10 text-cyan-500 opacity-80" />
+        <img v-if="member.image" :src="member.image" :alt="member.name" class="w-full h-full object-cover" />
+        <component v-else :is="roleIcon" class="w-10 h-10 text-cyan-500 opacity-80" />
       </div>
 
       <!-- Member Info -->
